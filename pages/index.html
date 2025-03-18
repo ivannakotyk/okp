@@ -6,24 +6,45 @@
     <meta name="date" content="2025-02-10">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Туристичний портал</title>
+    <link rel="stylesheet" type="text/css" href="../styles/mycss.css">
+    
+    <style>
+        h1 {
+            color: rgb(20, 0, 77);
+            font-size: 34px;
+            line-height: 2;
+        }
+        p {
+            font-size: 18px;
+            color: rgb(31, 31, 31); 
+            line-height: 1.2; 
+            padding: 3px;
+        }
+
+        a {
+            color: darkgreen !important;
+        }
+    </style>
 </head>
 
-<body link="red" vlink="blue" alink="pink" bgcolor="#F0FFFF">
-    <h1><font size="7" color="darkblue">Вітаємо на порталі TRAVEL!</font></h1>
-
-    <nav>
-        <ol>
-            <li><a href="#about">Про нас</a></li>
+<body>
+    <h1>Вітаємо на порталі TRAVEL!</h1>
+    <div class="menu">
+        <h2>Меню</h2>
+        <ul>
+            <li><a href="news.html" target="_parent">Новини туризму</a></li>
+            <li><a href="guide.html" target="_parent">Путівник</a></li>
+            <li><a href="refugees.html" target="_parent">Біженцям</a></li>
+            <li><a href="index.html#about" target="_parent">Про нас</a></li>
+            <li><a href="https://www.skyscanner.com" target="_blank">Знайти авіаквитки</a></li>
             <li><a href="#discover">Подорожуй світом</a></li>
             <li><a href="#learn_more">Дізнайтеся більше</a></li>
-        </ol>
-    </nav>
+        </ul>
+    </div>
 
     <section>
-        <iframe name="mFrame" scrolling="yes" 
-            style="width:225px; height:100px; position: fixed; top: 20px; right: 20px; border:ridge 5px; overflow-y: scroll;">
+        <iframe src="https://uk.wikipedia.org/wiki/%D0%A2%D1%83%D1%80%D0%B8%D0%B7%D0%BC">
         </iframe>
-        <a href="menu.html" target="mFrame">Відкрити меню</a>
     </section>
     
 
@@ -33,9 +54,11 @@
         <p>Відкрийте для себе найкрасивіші куточки нашої планети. 
             Ми допоможемо вам знайти ідеальне місце для відпочинку.</p>
 
+    <div class="image-container">
         <a href ="../assets/images/t.gif" target="_blank">
             <img src="../assets/images/t.gif" alt="Найкращий туристичний портал" width="948" height="656"> 
         </a>
+    </div>
 
     </section>
 
@@ -46,29 +69,32 @@
             Ознайомтеся з корисними статтями про вибір напрямку, 
             підготовку до подорожі та корисні лайфхаки для туристів:</p>
         <p>
+            <div class="image-container">
             <a href="guide.html">
                 <img src="../assets/images/logo_h2.jpg" alt="Цікаві пропозиції для твого найкращого відпочинку" 
                 width="35%" height="auto">
             </a>
+        </div>
         </p>
     </section>
 
     <section id="about">
         <h2>Про нас</h2>
 
-        <ol type="I">
-            <li><i>Наш портал створений для тих, хто любить мандрувати. 
-                Ми збираємо найкращі туристичні маршрути, поради та новини.</i></li>
-            <li><i>Наша команда складається з досвідчених мандрівників, 
+        <ol id="i">
+            <li>Наш портал створений для тих, хто любить мандрувати. 
+                Ми збираємо найкращі туристичні маршрути, поради та новини.</li>
+            <li>Наша команда складається з досвідчених мандрівників, 
                 які поділяться з вами перевіреними рекомендаціями 
-                та найцікавішими місцями для подорожей.</i></li>
-            <li><i>Ми прагнемо зробити ваші подорожі комфортними та незабутніми, надаючи інформацію про готелі,
-                 транспорт, визначні місця та культурні особливості різних країн.</i></li>
-            <li><i>Ми надаємо інформацію та допомогу людям, які втратили домівки чи постраждали від війни.</i>
+                та найцікавішими місцями для подорожей.</li>
+            <li>Ми прагнемо зробити ваші подорожі комфортними та незабутніми, надаючи інформацію про готелі,
+                 транспорт, визначні місця та культурні особливості різних країн.</li>
+            <li>Ми надаємо інформацію та допомогу людям, які втратили домівки чи постраждали від війни.
                 <a href="refugees.html#info">Дізнатися більше</a>
             </li>
         </ol>
         <p>Приєднуйтесь до нашої спільноти мандрівників та відкривайте світ разом з нами!</p>
+
         <a href="#">Повернутися нагору</a>
     </section>
 
