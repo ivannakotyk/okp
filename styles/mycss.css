@@ -40,7 +40,7 @@ h2 {
 ul {
     list-style-type: circle;
     font-family: 'Arial', sans-serif; 
-    font-size: 16px; 
+    font-size: 18px; 
     line-height: 1.6; 
     margin-left: 20px; 
     color: #333; 
@@ -64,11 +64,13 @@ dl {
 }
 dt {
     font-weight: bold; 
-    color: #0066cc; 
+    color: #014181; 
+    font-size: 20px;
 }
 dd {
     margin-left: 20px; 
-    color: #252525; 
+    color: #252525;
+    font-size: 18px; 
 }
 
 caption {
@@ -85,10 +87,6 @@ table {
     border-collapse: collapse;
     border: 3px double black; 
     font-family: 'Arial', sans-serif; 
-}
-
-.help-table a {
-    color: rgb(0, 139, 23) !important; 
 }
 
 th, td {
@@ -125,11 +123,7 @@ iframe {
 
 
 #i {
-    font-style: italic; 
-}
-
-#about a {
-    color: aqua;
+    font-style: italic ; 
 }
 
 
@@ -139,14 +133,14 @@ iframe {
     top: 0;
     left: 0;
     width: 200px;
-    height: 100vh;
+    height: 100%;
     background-color: #F0FFFF;
     padding: 20px;
     box-sizing: border-box;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-left: 1.4px solid black;
+    border-right: 1.4px solid black;
+    border-top: 1.4px solid black;
+    border-bottom: 1.4px solid black;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -184,4 +178,45 @@ iframe {
     text-align: center;
 }
 
+h1 + p {
+    color: rgb(43, 4, 135);  
+    font-size: 20px;
+    font-style: italic;
+    margin-top: 30px;
+    background-color: #c5e1fb; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
+div > h2 {
+    color: #012368;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+
+h1 + hr {
+    border: none;
+    height: 1.4px;
+    background-color: #000;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.learn_more_class > p, .discover_class p, #about p{
+    color: rgb(39, 3, 110); 
+    font-size: 18px; 
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.5;
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #e7e9e9;
+    border-left: 4px solid rgb(33, 32, 32);
+}
+
+#about > div {
+    margin-right: 100px;
+    margin-left: 100px;
+}
