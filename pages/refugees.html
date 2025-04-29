@@ -24,6 +24,8 @@
             padding: 3px; 
         }
     </style>
+    
+        
 </head>
 <body>
     <header>
@@ -64,7 +66,7 @@
     </section>
     
     <section>
-    <table class="help-table">
+    <table class="help-table" id="help-table">
         <caption>Таблиця допомоги</caption>
         <colgroup>
             <col class="category-column"> 
@@ -99,6 +101,37 @@
         </tbody>
     </table>
     </section>
-    
+    <script>
+
+        // Завдання на порівняння рядків
+        function compareStrings(){
+            let text1 = prompt("Введіть місто", "Київ");
+            let text2 = prompt("Введіть місто", "Київ");
+            if (text1 > text2) {
+                alert("Більший рядок: " + text1);
+            } else if (text1 < text2) {
+                alert("Більший рядок: " + text2);
+            } else {
+                alert("Рядки однакові: " + text1);
+            }
+        }
+        compareStrings();
+
+        window.onload = function() {
+            let infoSection = document.getElementById('help-table');
+            alert("info.innerHTML:\n" + infoSection.innerHTML);
+
+            alert("info.outerHTML:\n" + infoSection.outerHTML);
+
+            alert("info.textContent:\n" + infoSection.textContent);
+
+
+            let caption = infoSection.querySelector('caption');
+            let captionTextNode = caption.firstChild; 
+            alert("caption.firstChild.nodeValue:\n" + captionTextNode.nodeValue);
+            alert("caption.firstChild.data:\n" + captionTextNode.data);
+            
+        };
+    </script>
 </body>
 </html>

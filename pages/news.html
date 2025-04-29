@@ -96,5 +96,39 @@
             </a>
         </div>
     </section>
+
+
+    <script>
+        const headings = document.querySelectorAll('h2');
+        headings.forEach(heading => {
+            alert(heading.textContent); 
+        });
+
+    // prepend - початок
+    let firstSection = document.querySelector("section");
+    let prependedNotice = document.createElement("p");
+    prependedNotice.textContent = "📌 Увага! Ціни можуть змінюватися щоденно.";
+    prependedNotice.style.color = "red";
+    firstSection.prepend(prependedNotice);
+
+    // after 
+    let secondHeading = document.querySelectorAll("h2")[1];
+    let afterNote = document.createElement("p");
+    afterNote.textContent = "💡 Порада: бронюйте наперед — це дешевше!";
+    afterNote.style.fontStyle = "italic";
+    secondHeading.after(afterNote);
+
+    // replaceWith 
+    let headingToReplace = document.querySelectorAll("h2")[3];
+    let newHeading = document.createElement("h2");
+    newHeading.innerHTML = "<b>Відкрий нові горизонти!</b>";
+    headingToReplace.replaceWith(newHeading);
+
+    // remove 
+    let messageDiv = document.createElement("section");
+    messageDiv.innerHTML = "<strong>📢 Повідомлення:</strong> Тур відкрито!";
+    document.body.append(messageDiv);
+    setTimeout(() => messageDiv.remove(), 5000);
+    </script>
 </body>
 </html>

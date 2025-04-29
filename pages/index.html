@@ -15,6 +15,16 @@
             line-height: 2;
         }
     </style>
+       <script src="../scripts/style.js"></script>
+       <script>
+        alert("Ласкаво просимо на туристичний портал!");
+
+        let userName = prompt("Як вас звати?", "Госте");
+
+        let wantsInfo = confirm(`Бажаєте дізнатися більше про подорожі світом, ${userName}?`);
+        alert( wantsInfo );
+
+    </script>
 </head>
 
 <body>
@@ -30,9 +40,10 @@
             <li><a href="https://www.skyscanner.com" target="_blank">Знайти авіаквитки</a></li>
             <li><a href="#discover">Подорожуй світом</a></li>
             <li><a href="#learn_more">Дізнайтеся більше</a></li>
+            <li><a href="id_developer.html"target="_parent">Інформація про розробника</a></li>
         </ul>
     </div>
-
+    <script src="../scripts/dom.js"></script>
     <section>
         <iframe src="https://uk.wikipedia.org/wiki/%D0%A2%D1%83%D1%80%D0%B8%D0%B7%D0%BC">
         </iframe>
@@ -114,8 +125,23 @@
         <p style="font-size: 18px; color: rgb(8, 1, 61); line-height: 1.4; padding: 3px;">Приєднуйтесь до нашої спільноти мандрівників та відкривайте світ разом з нами!</p>
 
         <a href="#">Повернутися нагору</a>
+        
         </div>
     </section>
+<script>
+        var list = document.getElementById("i");
+        list.style.backgroundColor = "lightblue";
+        setTimeout(() => list.style.backgroundColor = "", 7000);
+
+    document.write("<p style='color:darkgreen; font-size:18px;'> Дякуємо, що завітали на нашу сторінку!</p>");
+
+    let newParagraph = document.createElement("p");
+    let newText = document.createTextNode("📌 Порада: Завжди перевіряйте умови перетину кордонів перед поїздкою!");
+    newParagraph.appendChild(newText);
+    let learnMoreSection = document.getElementById("learn_more_text");
+    learnMoreSection.appendChild(newParagraph);
+
+</script>
 
 </body>
 </html>
