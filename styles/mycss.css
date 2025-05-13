@@ -306,3 +306,31 @@ h2::after {
     position: relative; 
     left: 125px
 }
+
+/* Стилі для кнопок меню */
+.menu button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1.1em;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.menu button:hover {
+    color: #007BFF;
+    background-color: rgba(0, 123, 255, 0.1); /* легка підсвітка при наведенні */
+}
+
+.menu button:focus {
+    outline: none;
+    background-color: rgba(0, 123, 255, 0.2);
+}
+

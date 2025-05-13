@@ -32,17 +32,20 @@
     <hr>
     <div class="menu">
         <h2>Меню</h2>
-        <ul>
-            <li><a href="news.html" target="_parent">Новини туризму</a></li>
-            <li><a href="guide.html" target="_parent">Путівник</a></li>
-            <li><a href="refugees.html" target="_parent">Біженцям</a></li>
-            <li><a href="index.html#about" target="_parent">Про нас</a></li>
-            <li><a href="https://www.skyscanner.com" target="_blank">Знайти авіаквитки</a></li>
-            <li><a href="#discover">Подорожуй світом</a></li>
-            <li><a href="#learn_more">Дізнайтеся більше</a></li>
-            <li><a href="id_developer.html"target="_parent">Інформація про розробника</a></li>
-        </ul>
+        <div id="menuButtons">
+            <button data-behavior="behavior" data-action="news">Новини туризму</button>
+            <button data-behavior="behavior" data-action="guide">Путівник</button>
+            <button data-behavior="behavior" data-action="refugees">Біженцям</button>
+            <button data-behavior="behavior" data-action="about">Про нас</button>
+            <button data-behavior="behavior" data-action="flights">Знайти авіаквитки</button>
+            <button data-behavior="behavior" data-action="discover">Подорожуй світом</button>
+            <button data-behavior="behavior" data-action="learn_more">Дізнайтеся більше</button>
+            <button data-behavior="behavior" data-action="developer">Інформація про розробника</button>
+            <button data-behavior="behavior" data-action="scrollTop">⬆️ До гори</button>
+            <button data-behavior="behavior" data-action="scrollBottom">⬇️ Вниз</button>
+          </div>          
     </div>
+    
     <script src="../scripts/dom.js"></script>
     <section>
         <iframe src="https://uk.wikipedia.org/wiki/%D0%A2%D1%83%D1%80%D0%B8%D0%B7%D0%BC">
@@ -71,6 +74,7 @@
         </a>
     </div>
         </div>
+        
     </section>
 
     <section id="learn_more">
@@ -142,6 +146,52 @@
     learnMoreSection.appendChild(newParagraph);
 
 </script>
+<script>
+    class Menu {
+      constructor(element) {
+        this._element = element;
+        this._element.onclick = this.onClick.bind(this);
+      }
+      news() {
+        location.href = "news.html";
+      }
+      guide() {
+        location.href = "guide.html";
+      }
+      refugees() {
+        location.href = "refugees.html";
+      }
+      about() {
+        location.href = "#about";
+      }
+      flights() {
+        window.open("https://www.skyscanner.com", "_blank");
+      }
+      discover() {
+        location.href = "#discover";
+      }
+      learn_more() {
+        location.href = "#learn_more";
+      }
+      developer() {
+        location.href = "id_developer.html";
+      }
+      scrollTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+      scrollBottom() {
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+      onClick(event) {
+        let action = event.target.dataset.action;
+        if (action) {
+          this[action](); 
+        }
+      }
+    }
+    new Menu(document.getElementById("menuButtons"));
+  </script>
+  
 
 </body>
 </html>

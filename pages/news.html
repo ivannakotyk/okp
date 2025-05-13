@@ -104,6 +104,13 @@
             alert(heading.textContent); 
         });
 
+    let thirdSection = document.querySelectorAll("section")[2];
+    let appendedParagraph = document.createElement("p");
+    appendedParagraph.textContent = "📎 Зберігайте копії ваших квитків у цифровому вигляді!";
+    appendedParagraph.style.color = "green";
+    appendedParagraph.style.fontSize = "17px";
+    thirdSection.append(appendedParagraph);    
+
     // prepend - початок
     let firstSection = document.querySelector("section");
     let prependedNotice = document.createElement("p");
@@ -118,17 +125,44 @@
     afterNote.style.fontStyle = "italic";
     secondHeading.after(afterNote);
 
-    // replaceWith 
+    // replaceWith - замінює
     let headingToReplace = document.querySelectorAll("h2")[3];
     let newHeading = document.createElement("h2");
     newHeading.innerHTML = "<b>Відкрий нові горизонти!</b>";
     headingToReplace.replaceWith(newHeading);
 
-    // remove 
+    // remove - видалення
     let messageDiv = document.createElement("section");
     messageDiv.innerHTML = "<strong>📢 Повідомлення:</strong> Тур відкрито!";
     document.body.append(messageDiv);
     setTimeout(() => messageDiv.remove(), 5000);
+
+
+
+
+
+       // Призначення об'єкта як обробника подій
+       const handlerObject = {
+            handleEvent(event) {
+                alert("🔔 Подія: " + event.type);
+                alert("📍 Спрацювало на елементі: " + 
+                event.currentTarget.tagName + ", з класами: " + 
+                event.currentTarget.className);
+                event.currentTarget.src = "../assets/images/t.gif";
+            }
+        };
+
+        let image = document.querySelector("img");
+        if (image) {
+            image.addEventListener("click", handlerObject);
+
+            // Видалення обробника через 7 секунд
+            setTimeout(() => {
+                image.removeEventListener("click", handlerObject);
+                alert("⛔ Обробник події для зображення видалено.");
+            }, 7000);
+        }
+
     </script>
 </body>
 </html>

@@ -72,10 +72,13 @@
         </thead>
         <tbody>
             <tr>
-                <td><img src="../assets/images/bukovel.jpg" alt="Буковель" width="200"></td>
-                <td><img src="../assets/images/Barsa.jpg" alt="Іспанія" width="200"></td>
-                <td><img src="../assets/images/Sharm_el.jpg" alt="Єгипет" width="200"></td>
-                <td><img src="../assets/images/Paris.jpg" alt="Париж" width="200"></td>
+                <td><img src="../assets/images/bukovel.jpg" alt="Буковель" width="200"
+                    onmouseover="showTourInfo('Буковель: Є вільні місця. Дата туру: 20 червня 2025')">
+                </td>
+                <td><img src="../assets/images/Barsa.jpg" alt="Іспанія" width="200" id="spain"></td>
+                <td><img src="../assets/images/Sharm_el.jpg" alt="Єгипет" width="200" id="egypt"></td>
+                <td><img src="../assets/images/Paris.jpg" alt="Париж" width="200" id="france"></td>
+
             </tr>
             <tr >
                 <td><a href="https://bukovel.com">Буковель</a></td>
@@ -111,6 +114,23 @@
     </table>
 </div>
 <script>
+    function showTourInfo(message) {
+        alert(message);
+    }
+
+    spain.onmouseover = function() {
+        alert("Барселона: Є кілька місць. Дата туру: 5 липня 2025");
+    };
+
+    egypt.onmouseover = function() {
+        alert("Шарм ель Шейх: Місць обмежено! Дата туру: 15 червня 2025");
+    };
+
+    france.onmouseover = function() {
+        alert("Париж: Місць достатньо. Дата туру: 30 червня 2025");
+    };
+
+
     document.body.style.background = 'white'; 
      setTimeout(() => document.body.style.background = '', 30000);
 

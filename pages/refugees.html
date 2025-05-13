@@ -44,7 +44,7 @@
     <section>
         <h2>Доступні ресурси</h2>
         <p>Біженці можуть скористатися такими послугами:</p>
-        <ul>
+        <ul id="click_List">
             <li>Тимчасове житло</li>
             <li>Безкоштовне харчування</li>
             <li>Медична допомога</li>
@@ -63,6 +63,7 @@
             <dd>Перелік центрів підтримки доступний за 
                  <a href="https://www.unhcr.org/ua/" target="_blank">цим посиланням</a>.</dd>
         </dl>
+        <input id="adviceBtn" type="button" value="Отримай пораду"/>
     </section>
     
     <section>
@@ -103,16 +104,15 @@
     </section>
     <script>
 
-        // Завдання на порівняння рядків
         function compareStrings(){
             let text1 = prompt("Введіть місто", "Київ");
             let text2 = prompt("Введіть місто", "Київ");
             if (text1 > text2) {
-                alert("Більший рядок: " + text1);
+                alert("Найкраще місто: " + text1);
             } else if (text1 < text2) {
-                alert("Більший рядок: " + text2);
+                alert("Чудове місто: " + text2);
             } else {
-                alert("Рядки однакові: " + text1);
+                alert("У Вас гарний смак: " + text1);
             }
         }
         compareStrings();
@@ -132,6 +132,48 @@
             alert("caption.firstChild.data:\n" + captionTextNode.data);
             
         };
+
+
+
+        function handler1() {
+        alert("Завжди тримайте при собі копії документів.");
+        }
+
+        function handler2() {
+        alert("Питайте про безкоштовні послуги – їх більше, ніж здається.");
+        }
+
+        function handler3() {
+        let btn = document.getElementById("adviceBtn");
+        let originalValue = btn.value;
+        btn.value = "Пораду отримано!";
+        }
+
+        let btn = document.getElementById("adviceBtn");
+        btn.addEventListener("click", handler1);
+        btn.addEventListener("click", handler2);
+        btn.addEventListener("click", handler3);
+        
+        
+        //event.target
+        let list = document.getElementById("click_List");
+        let selectedItem; // збереження підсвіченого елемента
+
+    list.onclick = function(event) {
+        let target = event.target;
+
+        if (target.tagName !== 'LI') return;
+
+        if (selectedItem) {
+            selectedItem.style.backgroundColor = "";
+            selectedItem.style.color = "";
+        }
+
+        selectedItem = target;
+        selectedItem.style.backgroundColor = "violet";
+        selectedItem.style.color = "white";
+    };
+
     </script>
 </body>
 </html>
