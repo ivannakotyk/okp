@@ -7,13 +7,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Туристичний портал</title>
     <link rel="stylesheet" type="text/css" href="../styles/mycss.css">
-    
+    <script src="../scripts/plane.js"></script>
+
     <style>
         h1 {
             color: rgb(20, 0, 77);
             font-size: 34px;
             line-height: 2;
         }
+
+.flight-zone {
+    position: relative;
+    height: 150px;
+    background: linear-gradient(to right, #e0f7fa, #ffffff);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 800px;
+    padding: 10px;
+    left: 10%;
+}
+#plane {
+    position: absolute; 
+    top: 20px; 
+    left: 20px; 
+    cursor: grab;
+}
+#runway {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 180px;
+    height: 110px;
+    background: repeating-linear-gradient(
+        45deg,
+        #b0bec5,
+        #b0bec5 10px,
+        #cfd8dc 10px,
+        #cfd8dc 20px
+    );
+    border: 3px dashed #607d8b;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 110px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #263238;
+}
+
     </style>
        <script src="../scripts/style.js"></script>
        <script>
@@ -33,17 +75,18 @@
     <div class="menu">
         <h2>Меню</h2>
         <div id="menuButtons">
-            <button data-behavior="behavior" data-action="news">Новини туризму</button>
-            <button data-behavior="behavior" data-action="guide">Путівник</button>
-            <button data-behavior="behavior" data-action="refugees">Біженцям</button>
-            <button data-behavior="behavior" data-action="about">Про нас</button>
-            <button data-behavior="behavior" data-action="flights">Знайти авіаквитки</button>
-            <button data-behavior="behavior" data-action="discover">Подорожуй світом</button>
-            <button data-behavior="behavior" data-action="learn_more">Дізнайтеся більше</button>
-            <button data-behavior="behavior" data-action="developer">Інформація про розробника</button>
-            <button data-behavior="behavior" data-action="scrollTop">⬆️ До гори</button>
-            <button data-behavior="behavior" data-action="scrollBottom">⬇️ Вниз</button>
-          </div>          
+            <button data-behavior="news">Новини туризму</button>
+            <button data-behavior="guide">Путівник</button>
+            <button data-behavior="refugees">Біженцям</button>
+            <button data-behavior="about">Про нас</button>
+            <button data-behavior="flights">Знайти авіаквитки</button>
+            <button data-behavior="discover">Подорожуй світом</button>
+            <button data-behavior="learn_more">Дізнайтеся більше</button>
+            <button data-behavior="developer">Інформація про розробника</button>
+            <button data-behavior="scrollTop">⬆️ До гори</button>
+            <button data-behavior="scrollBottom">⬇️ Вниз</button>
+        </div>
+
     </div>
     
     <script src="../scripts/dom.js"></script>
@@ -131,6 +174,15 @@
         <a href="#">Повернутися нагору</a>
         
         </div>
+
+        <h2>Перетягни літак до смуги, щоб почати подорож!</h2>
+        <div class="flight-zone">
+            <img id="plane" src="../assets/images/plane.png" alt="Літак" width="100" >
+        <div id="runway" class="droppable">
+        ✈️ Полетіли?!
+      </div>
+</div>
+
     </section>
 <script>
         var list = document.getElementById("i");
@@ -147,50 +199,59 @@
 
 </script>
 <script>
-    class Menu {
-      constructor(element) {
-        this._element = element;
-        this._element.onclick = this.onClick.bind(this);
-      }
-      news() {
-        location.href = "news.html";
-      }
-      guide() {
-        location.href = "guide.html";
-      }
-      refugees() {
-        location.href = "refugees.html";
-      }
-      about() {
-        location.href = "#about";
-      }
-      flights() {
-        window.open("https://www.skyscanner.com", "_blank");
-      }
-      discover() {
-        location.href = "#discover";
-      }
-      learn_more() {
-        location.href = "#learn_more";
-      }
-      developer() {
-        location.href = "id_developer.html";
-      }
-      scrollTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+  class Menu {
+    constructor(element) {
+      this._element = element;
+      this._element.onclick = this.onClick.bind(this);
     }
-      scrollBottom() {
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+
+    news() {
+      location.href = "news.html";
     }
-      onClick(event) {
-        let action = event.target.dataset.action;
-        if (action) {
-          this[action](); 
-        }
+    guide() {
+      location.href = "guide.html";
+    }
+    refugees() {
+      location.href = "refugees.html";
+    }
+    about() {
+      location.href = "#about";
+    }
+    flights() {
+      window.open("https://www.skyscanner.com", "_blank");
+    }
+    discover() {
+      location.href = "#discover";
+    }
+    learn_more() {
+      location.href = "#learn_more";
+    }
+    developer() {
+      location.href = "id_developer.html";
+    }
+    scrollTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    scrollBottom() {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    onClick(event) {
+      const target = event.target;
+      const behaviorName = target.dataset.behavior;
+
+      if (!behaviorName) return;
+
+      if (typeof this[behaviorName] === "function") {
+        this[behaviorName]();
       }
     }
+  }
+  window.onload = function () {
     new Menu(document.getElementById("menuButtons"));
-  </script>
+  };
+</script>
+
   
 
 </body>

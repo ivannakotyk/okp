@@ -334,3 +334,52 @@ h2::after {
     background-color: rgba(0, 123, 255, 0.2);
 }
 
+
+
+
+
+
+/* Обгортка всього блоку з літаком і смугою */
+.flight-zone {
+    position: relative;
+    height: 150px;
+    background: linear-gradient(to right, #e0f7fa, #ffffff);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 800px;
+    padding: 10px;
+}
+
+/* Сам літак */
+#plane {
+    position: absolute; 
+    top: 20px; 
+    left: 20px; 
+    cursor: grab;
+}
+
+
+/* Злітна смуга */
+#runway {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 180px;
+    height: 110px;
+    background: repeating-linear-gradient(
+        45deg,
+        #b0bec5,
+        #b0bec5 10px,
+        #cfd8dc 10px,
+        #cfd8dc 20px
+    );
+    border: 3px dashed #607d8b;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 110px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #263238;
+}
